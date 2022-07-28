@@ -6,6 +6,8 @@ class IndexView(TemplateView):
     template_name='home/home.html'
 
 class PruebaListView(ListView):
-    template_name='home/x.html'
+    template_name='home/lista.html'
+    queryset = ['A','B','C'] 
+    context_object_name = 'lista_prueba'
 
 
