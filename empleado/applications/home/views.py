@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 # Create your views here.
 class IndexView(TemplateView):
-    template_name='home.html'
+    template_name='home/home.html'
+
+class PruebaListView(ListView):
+    template_name='home/x.html'
+
 
