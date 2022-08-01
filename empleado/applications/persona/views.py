@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 # importo la clase
 from django.views.generic import TemplateView, ListView, DetailView, CreateView 
-
+from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
 
@@ -72,5 +72,6 @@ class EmpleadoCreateView(CreateView):
     # recarga la misma pagina
     #success_url = '.'
     # redirecciono
-    success_url = '/success'
+    #success_url = '/success'
+    success_url = reverse_lazy('persona_app:correcto')
 
