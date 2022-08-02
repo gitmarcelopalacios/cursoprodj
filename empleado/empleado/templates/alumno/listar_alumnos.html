@@ -1,0 +1,10 @@
+<h1>Lista de todos los alumnos</h1>
+
+{% for e in object_list %}
+    <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+    <p>{{ e.nombres }}</p>
+    <p>{{ e.dni }} </p>
+    <p>{{ e.telefono }} </p>
+    <p>{{ e.correo_electronico }}</p>
+{% endfor %}
+

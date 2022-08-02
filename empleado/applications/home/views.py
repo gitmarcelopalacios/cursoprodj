@@ -19,3 +19,9 @@ class ModeloPruebaListView(ListView):
     context_object_name = 'lita_prueba'
 
 
+class PruebaCreateView(CreateView):
+    model = Prueba
+    template_name = "home/add.html"
+    fields = ['titulo','subtitulo','cantidad']
+    success_url = '/'
+

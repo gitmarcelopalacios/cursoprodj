@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'applications.departamento',
     'applications.persona',
     'applications.home',
+    'applications.alumno',
 ]
 
 MIDDLEWARE = [

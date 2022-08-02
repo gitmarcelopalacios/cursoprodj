@@ -1,9 +1,10 @@
+from pdb import post_mortem
 from django.shortcuts import render
 
 # Create your views here.
 
 # importo la clase
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView 
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView 
 from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
@@ -88,4 +89,24 @@ class EmpleadoUpdateView(UpdateView):
     template_name = "persona/update.html"
     model = Empleado
     fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades')
+    success_url = reverse_lazy('persona_app:correcto')
+
+    def post(self, request, *args, **kwargs):
+        self.object=self.get_object()
+        print('****************METODO POST****************')
+        print('===========================================')
+        print('METODO POST')
+        print(request.POST)
+        print(request.POST['last_name'])
+        return super().post(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        # logica del proceso
+        print('****************METODO FORM_VALID****************')
+        print('*************************************************')
+        return super(EmpleadoUpdateView, self).form_valid(form)
+
+class EmpleadoDeleteView(DeleteView):
+    model = Empleado
+    template_name = "persona/delete.html"
     success_url = reverse_lazy('persona_app:correcto')
