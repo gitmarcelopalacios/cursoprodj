@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 # importo la clase
-from django.views.generic import TemplateView, ListView, DetailView, CreateView 
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView 
 from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
@@ -68,10 +68,24 @@ class EmpleadoCreateView(CreateView):
     model = Empleado
     #fields = ['first_name','last_name','job']
     # muestra todos los campos
-    fields = ('__all__')
+    #fields = ('__all__')
+    fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades')
     # recarga la misma pagina
     #success_url = '.'
     # redirecciono
     #success_url = '/success'
     success_url = reverse_lazy('persona_app:correcto')
 
+    def form_valid(self, form):
+        # logica del proceso
+        empleado = form.save(commit=False)
+        empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+        empleado.save()
+        return super(EmpleadoCreateView, self).form_valid(form)
+
+
+class EmpleadoUpdateView(UpdateView):
+    template_name = "persona/update.html"
+    model = Empleado
+    fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades')
+    success_url = reverse_lazy('persona_app:correcto')

@@ -20,6 +20,7 @@ class Empleado(models.Model):
     # modelo para tabla empleado
     first_name = models.CharField('Nombres', max_length=60)
     last_name = models.CharField('Apellidos', max_length=60)
+    full_name = models.CharField('Nombres Completos', max_length=120, blank=True)
     # atributos seleccionables
     # contador
     # administrador
@@ -37,8 +38,13 @@ class Empleado(models.Model):
     
     habilidades = models.ManyToManyField(Habilidades)
     hoja_vida = RichTextField()
-    
-    
+
+    class Meta:
+        verbose_name = 'Mi empleado'
+        verbose_name_plural = 'Empleados de la empresa'
+        ordering = ['-first_name','last_name']
+        unique_together = ('first_name','departamento')
+
     def __str__(self):
         return str(self.id)+'-'+self.first_name+'-'+self.last_name
         
