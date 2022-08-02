@@ -4,6 +4,8 @@ from django.views.generic import TemplateView, ListView, CreateView
 
 from .models import Prueba
 
+from .forms import PruebaForm
+
 # Create your views here.
 class IndexView(TemplateView):
     template_name='home/home.html'
@@ -22,6 +24,6 @@ class ModeloPruebaListView(ListView):
 class PruebaCreateView(CreateView):
     model = Prueba
     template_name = "home/add.html"
-    fields = ['titulo','subtitulo','cantidad']
+    form_class = PruebaForm
     success_url = '/'
 
