@@ -1,5 +1,3 @@
-from math import modf
-from socket import fromshare
 from django import forms
 
 from .models import Prueba
@@ -16,6 +14,13 @@ class PruebaForm(forms.ModelForm):
             'subtitulo',
             'cantidad',
         )
+        widgets = {
+            'titulo': forms.TextInput(
+                attrs = {
+                    'placeholder': 'Ingrese texto aquí'
+                }
+            )
+        }
 
     def clean_cantidad(self):
         # validacion por cantidad < 10

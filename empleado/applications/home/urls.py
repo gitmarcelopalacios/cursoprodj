@@ -4,6 +4,15 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path(
+        'prueba/', 
+        views.IndexView.as_view()
+    ),
+    path(
+        'resume-foundation/', 
+        views.ResumeFoundationView.as_view(),
+        name = 'resume_foundation_page'
+    ),
+    path(
         'home/', 
         views.IndexView.as_view()
     ),

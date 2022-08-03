@@ -1,7 +1,14 @@
 from django.contrib import admin
 from .models import Departamento
 # Register your models here.
-admin.site.register(Departamento)
 
+#decoradores
+class DepartamentoAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 
+        'name',
+        'shor_name',
+    )
 
+admin.site.register(Departamento, DepartamentoAdmin)
 
