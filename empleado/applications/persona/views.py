@@ -9,6 +9,10 @@ from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
 
+class InicioView(TemplateView):
+    ''' vista que carga la pagina de inicio '''
+    template_name = "inicio.html"
+
 
 class ListAllEmpleados(ListView):
     # listar todos los empleados de la empresa

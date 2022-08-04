@@ -1,0 +1,21 @@
+{% extends 'home/common/base_home.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Pantalla 2    
+{% endblock titulo %}
+    
+{% block cuerpo %}
+<body>
+    <h1>Tema 3</h1>
+    <div class="grid-x">
+        <div class="cell callout success">
+            <h5>Esto es un callout</h5>
+            <p>Esto es un parrafo</p>
+            <a href="">Enviar</a>
+        </div>
+    </div>
+    {% include 'home/common/footer.html' %}
+</body>    
+{% endblock cuerpo %}

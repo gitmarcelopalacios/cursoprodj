@@ -7,6 +7,12 @@ app_name = "persona_app"
 
 urlpatterns = [
     path(
+        # en vacio se ejecuta como pantalla inicial
+        '', 
+        views.InicioView.as_view(),
+        name='inicio'
+    ),
+    path(
         'listar-todo-empleados/',
          views.ListAllEmpleados.as_view()
     ),
