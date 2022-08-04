@@ -17,7 +17,7 @@ class InicioView(TemplateView):
 class ListAllEmpleados(ListView):
     # listar todos los empleados de la empresa
     template_name = "persona/list_all.html"
-    paginate_by = 4
+    #paginate_by = 4
     model = Empleado
     
 

@@ -1,11 +1,59 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %} Página de Inicio Sistema Empleados {% endblock title %}
 
 
 {% block content %}
-    
-    <h1>Página de Inicio</h1>
+
+{% include 'includes/header.html' %}
+
+<!-- orbit js inicio portada -->
+
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+      <div class="orbit-controls">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/montañas2.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Desde el Pico.</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/montañas4.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Valle con Bruma</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/montañas6.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Cadenas Montañosas</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+<!-- fin portada orbit -->
+
+<!-- bloque de bienvenida -->
+<div class="grid-x align-center">
+    <h1 class="cell large-8" style="font-size: 25px; text-align:center;">BIENVENIDO AL SISTEMA DE REGISTRO DE EMPLEADOS</h1>   
+    <DIV class="cell large-6">
+        <div class="callout success">
+            <h5>Registra y controla Empleados</h5>
+            <p>It has an easy to override visual style, and is appropriately subdued.</p>
+            <a href="#">Ver Empleados</a>
+          </div>
+    </DIV> 
+</div>
+<!-- fin del bloque de bienvenida -->
+
 {% endblock content %}
     
