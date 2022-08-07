@@ -9,6 +9,8 @@ from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
 
+from django.core.paginator import Paginator
+
 class InicioView(TemplateView):
     ''' vista que carga la pagina de inicio '''
     template_name = "inicio.html"

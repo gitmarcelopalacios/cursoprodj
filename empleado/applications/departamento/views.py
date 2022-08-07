@@ -8,6 +8,13 @@ from .models import Departamento
 
 from applications.departamento.forms import NewDepartamentoForm
 
+
+
+class DepartamentoListView(ListView):
+    model = Departamento
+    template_name = "departamento/lista.html"
+
+
 class NewDepartamentoView(FormView):
     template_name = 'departamento/new_departamento.html'
     form_class = NewDepartamentoForm
