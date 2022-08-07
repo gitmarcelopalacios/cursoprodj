@@ -1,8 +1,31 @@
-<h1>Detalle de un empleado {{ titulo }}</h1>
-{{ empleado }}
-<h3>Detalle</h3>
-<p>{{ empleado.id }}</p>
-<p>{{ empleado.first_name }}</p>
-<p>{{ empleado.last_name }}</p>
-<p>{{ empleado.departamento }}</p>
-<p>{{ empleado.habilidades }}</p>
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Detalle de un empleado    
+{% endblock title %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <h1>Detalle de un empleado</h1>
+
+    <p><h3>ID:{{ empleado.id }}</h3></p>
+    <p><h3>NOMBRES:{{ empleado.first_name }}</h3></p>
+    <p><h3>APELLIDOS:{{ empleado.last_name }}</h3></p>
+    <p><h3>DEPARTAMENTO:{{ empleado.departamento }}</h3></p>
+    <p><h3>HABILIDADES:{{ empleado.habilidades }}</h3></p>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+

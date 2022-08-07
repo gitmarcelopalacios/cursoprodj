@@ -37,7 +37,8 @@ urlpatterns = [
 
     path(
         'ver-empleado/<pk>/', 
-        views.EmpleadoDetailView.as_view()
+        views.EmpleadoDetailView.as_view(),
+        name='empleado_detail'
     ),
 
     path(
