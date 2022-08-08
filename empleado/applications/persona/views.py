@@ -31,9 +31,20 @@ class ListAllEmpleados(ListView):
         )
         return lista
 
+
+class ListaEmpleadosAdmin(ListView):
+    # listar todos los empleados de la empresa
+    template_name = "persona/lista_empleados.html"
+    paginate_by = 10
+    ordering = 'first_name'
+    context_object_name = 'empleados'
+    model = Empleado
+
+
 class ListByAreaEmpleado(ListView):
     # listar todos los empleados que pertenecen a un area de la empresa
     template_name = "persona/list_by_area.html"
+    context_object_name = 'empleados'
 
     def get_queryset(self):
         # aqui escribo el codigo que yo quiera
@@ -107,17 +118,11 @@ class EmpleadoUpdateView(UpdateView):
 
     def post(self, request, *args, **kwargs):
         self.object=self.get_object()
-        print('****************METODO POST****************')
-        print('===========================================')
-        print('METODO POST')
         print(request.POST)
         print(request.POST['last_name'])
         return super().post(request, *args, **kwargs)
 
     def form_valid(self, form):
-        # logica del proceso
-        print('****************METODO FORM_VALID****************')
-        print('*************************************************')
         return super(EmpleadoUpdateView, self).form_valid(form)
 
 class EmpleadoDeleteView(DeleteView):

@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 
-
-{% block title %}
-    Lista de Empleados por Departamento
-{% endblock title %}
-
+{% load static %}
 
 {% block content %}
+
     {% include 'includes/header.html' %}
     <div class="grid-container">
         <div class="grid-x">
-            <div class="cell"><h1>Empleados por área:</h1></div>
+            <h1>Lista Empleados</h1>
             <div class="cell">
                 <table>
                     <thead>
@@ -29,7 +26,14 @@
                             <td>{{ e.first_name }}</td>
                             <td>{{ e.last_name }}</td>
                             <td>{{ e.departamento }}</td>
-                            <td><a href="{% url 'persona_app:empleado_detail' e.id %}" class="button warning">Ver</a></td>
+                            <td>
+                                <a href="{% url 'persona_app:modificar_empleado' e.id %}" 
+                                class="button success"
+                                >Editar</a>
+                                <a href="{% url 'persona_app:eliminar_empleado' e.id %}"
+                                class="button alert"
+                                >Eliminar</a>
+                            </td>
                         </tr>
                       {% endfor %}
                     </tbody>
@@ -66,6 +70,7 @@
         </div>
     </div>
 
-{% endblock content %}    
+{% endblock content %}
     
+
 

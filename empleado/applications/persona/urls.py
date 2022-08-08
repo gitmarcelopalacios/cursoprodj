@@ -22,7 +22,14 @@ urlpatterns = [
     
     path(
         'lista-by-area/<shorname>/', 
-        views.ListByAreaEmpleado.as_view()
+        views.ListByAreaEmpleado.as_view(),
+        name='empleado_area'
+    ),
+    
+    path(
+        'lista-empleados-admin/', 
+        views.ListaEmpleadosAdmin.as_view(),
+        name='empleados_admin'
     ),
     
     path(
@@ -32,7 +39,7 @@ urlpatterns = [
 
     path(
         'lista-habilidades-empleado/',
-         views.ListHabilidadesEmpleados.as_view()
+         views.ListHabilidadesEmpleados.as_view(),
     ),
 
     path(

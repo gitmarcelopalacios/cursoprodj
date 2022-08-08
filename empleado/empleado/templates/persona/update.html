@@ -1,6 +1,23 @@
-<h1>Modificar datos de un empleado</h1>
+{% extends 'base.html' %}
 
-<form method="POST">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Actualizar</button>
-</form>
+
+{% block title %} Editar Empleado {% endblock title %}
+    
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">
+                Modificar Empleado
+            </h1>
+            <div class="cell">
+                <form method="POST">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Actualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
