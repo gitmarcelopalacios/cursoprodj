@@ -114,7 +114,7 @@ class EmpleadoUpdateView(UpdateView):
     template_name = "persona/update.html"
     model = Empleado
     fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades')
-    success_url = reverse_lazy('persona_app:correcto')
+    success_url = reverse_lazy('persona_app:empleados_admin')
 
     def post(self, request, *args, **kwargs):
         self.object=self.get_object()
@@ -128,4 +128,4 @@ class EmpleadoUpdateView(UpdateView):
 class EmpleadoDeleteView(DeleteView):
     model = Empleado
     template_name = "persona/delete.html"
-    success_url = reverse_lazy('persona_app:correcto')
+    success_url = reverse_lazy('persona_app:empleados_admin')
