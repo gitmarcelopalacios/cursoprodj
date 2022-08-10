@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 # importo la vista
+
+from django.db import models
 from . import views
+
 urlpatterns = [
    
     path(

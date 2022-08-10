@@ -1,6 +1,55 @@
-<h1>Registrar Persona</h1>
+{% extends 'base.html' %}
 
-<form method="POST">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Agregar</button>
-</form>
+{% block title %} 
+    Registrar Empleado 
+{% endblock title %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">
+                Registrar Empleado
+            </h1>
+            <div class="cell">
+                <form class="grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+                    <div class="cell large-6">
+                        <label>Nombre(s):
+                            <label >{{ form.first_name }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-6">
+                        <label>Apellido(s):
+                            <label >{{ form.last_name }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-6">
+                        <label>Trabajo:
+                            <label >{{ form.job }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-6">
+                        <label>Área:
+                            <label >{{ form.departamento }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-12">
+                        <label>Habilidades Extra:
+                           <label >{{ form.habilidades }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-12">
+                        <label>Avatar:
+                           <label >{{ form.avatar }}</label>
+                        </label>
+                    </div>
+                    <div class="cell">
+                        <button type="submit" class="success button">Agregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

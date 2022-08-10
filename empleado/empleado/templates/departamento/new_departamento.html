@@ -1,15 +1,54 @@
-<h1>Registrar nuevo departamento</h1>
+{% extends 'base.html' %}
 
-<form method="POST">{% csrf_token %}
+{% block title %} 
+    Registrar Departamento 
+{% endblock title %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">
+                Registrar Departamento
+            </h1>
+            <div class="cell">
+                <form class="grid-x callout grid-margin-x" method="POST">{% csrf_token %}
+                    <div class="cell">
+                        DATOS EMPLEADO
+                    </div>
+                    <!-- los nombres de las variables no son sacadas del modelo sino 
+                    de el forms.py de departamentos.  -->
+                    <div class="cell large-6">
+                        <label>Nombre(s):
+                            <label >{{ form.nombre }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-6">
+                        <label>Apellido(s):
+                            <label >{{ form.apellidos }}</label>
+                        </label>
+                    </div>
+                    <div class="cell">
+                        DATOS DEPARTAMENTO
+                    </div>
+                    <div class="cell large-6">
+                        <label>Departamento:
+                            <label >{{ form.departamento }}</label>
+                        </label>
+                    </div>
+                    <div class="cell large-6">
+                        <label>Nombre Corto:
+                            <label >{{ form.shorname }}</label>
+                        </label>
+                    </div>
+                    <div class="cell">
+                        <button type="submit" class="success button">Guardar</button>
+                    </div>
+ 
+     
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
     
-    <h3>Datos Empleado</h3>
-    <p>Nombre: {{ form.nombre }}</p> 
-    <p>Apellidos: {{ form.apellidos}}</p> 
-    
-    <h3>Datos Departamento</h3>
-    <p>Departamento: {{ form.departamento }}</p> 
-    <p>Nombre Corto: {{ form.shorname}}</p> 
-
-    <button type="submit">Guardar</button>
-
-</form>

@@ -23,14 +23,15 @@ class NewDepartamentoView(FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        print('********** ESTAMOS EN EL FORM_VALID *********')
 
+        # guardo los datos de departamento
         depa = Departamento(
             name = form.cleaned_data['departamento'],
             shor_name = form.cleaned_data['shorname']
         )
         depa.save()
 
+        # guardo los datos del empleado
         nombre = form.cleaned_data['nombre']
         apellido = form.cleaned_data['apellidos']
         Empleado.objects.create(

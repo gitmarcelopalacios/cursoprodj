@@ -1,15 +1,23 @@
-from pdb import post_mortem
 from django.shortcuts import render
-
 # Create your views here.
 
 # importo la clase
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView 
+from django.views.generic import (
+    TemplateView, 
+    ListView, 
+    DetailView, 
+    CreateView, 
+    UpdateView, 
+    DeleteView
+) 
 from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
 
+#from .forms import EmpleadoForm
+
 from django.core.paginator import Paginator
+
 
 class InicioView(TemplateView):
     ''' vista que carga la pagina de inicio '''
@@ -92,15 +100,13 @@ class SuccessView(TemplateView):
 class EmpleadoCreateView(CreateView):
     template_name = "persona/add.html"
     model = Empleado
-    #fields = ['first_name','last_name','job']
+    #form_class = EmpleadoForm
+    success_url = reverse_lazy('persona_app:empleados_admin')
+
     # muestra todos los campos
     #fields = ('__all__')
-    fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades')
+    fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades', 'avatar')
     # recarga la misma pagina
-    #success_url = '.'
-    # redirecciono
-    #success_url = '/success'
-    success_url = reverse_lazy('persona_app:correcto')
 
     def form_valid(self, form):
         # logica del proceso

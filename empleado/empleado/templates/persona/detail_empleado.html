@@ -2,29 +2,49 @@
 
 {% load static %}
 
-
-{% block title %}
-    Detalle de un empleado    
+{% block title %} 
+    {{ form.last_name }} {{ form.first_name }} 
 {% endblock title %}
 
 {% block content %}
-
-{% include 'includes/header.html' %}
-
-<div class="grid-container">
-    <h1>Detalle de un empleado</h1>
-
-    <p><h3>ID:{{ empleado.id }}</h3></p>
-    <p><h3>NOMBRES:{{ empleado.first_name }}</h3></p>
-    <p><h3>APELLIDOS:{{ empleado.last_name }}</h3></p>
-    <p><h3>DEPARTAMENTO:{{ empleado.departamento }}</h3></p>
-    <p><h3>HABILIDADES:{{ empleado.habilidades }}</h3></p>
-</div>
-
+    {% include 'includes/header.html' %}
+    <div class="grid-container align-center">
+        <div class="grid-x">
+            <center>
+                <h1 class="cell align-center">Detalles del Empleado</h1>
+            </center>
+            <div class="cell">
+                <form class="grid-x grid-margin-x align-center" method="POST">{% csrf_token %}
+                    <!-- card con imagen -->
+                    <div class="cell large-4 card " style="width: 300px;">
+                        <div class="card-divider">
+                            {{ empleado.get_job_display }}
+                        </div>
+                        {% if empleado.avatar %}
+                        <img src="{{ empleado.avatar.url }}">
+                        {% else %}
+                        <img src="{% static 'img/anonimo.jpg' %}">
+                        {% endif %}
+                        <div class="card-section">
+                          <h4>{{ empleado.first_name }} {{ empleado.last_name }}</h4>
+                          <p>{{ empleado.departamento}}</p>
+                          <p><span class="label">Habilidades:</span></p>
+                          <ul class="vertical menu">
+                            {% for h in empleado.habilidades.all %}
+                                <li>
+                                    {{ h.habilidad }}    
+                                </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
-
-
-
+    
 
 
 

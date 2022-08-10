@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-# importo la vista
+from django import views
+from .views import InicioView
 from . import views
-
 app_name = "persona_app"
 
 urlpatterns = [
@@ -50,7 +50,8 @@ urlpatterns = [
 
     path(
         'add-empleado/', 
-        views.EmpleadoCreateView.as_view()
+        views.EmpleadoCreateView.as_view(),
+        name='empleado_add'
     ),
 
     path(

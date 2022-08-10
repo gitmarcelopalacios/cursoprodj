@@ -7,12 +7,13 @@
       <li><a href="{% url 'persona_app:empleados_all' %}">Listar</a></li>
       <li><a href="{% url 'departamento_app:departamento_list' %}">Departamentos</a></li>
       <li><a href="{% url 'persona_app:empleados_admin' %}">Administrar</a></li>
+      <li><a href="{% url 'departamento_app:nuevo_departamento' %}">Nuevo Departamento</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="menu">
       <li><input type="search" placeholder="Buscar Empleado"></li>
-      <li><button type="button" class="button">Registrar Nuevo</button></li>
+      <li><a type="button" class="button success" href="{% url 'persona_app:empleado_add' %}">Registrar Nuevo</a></li>
     </ul>
   </div>
 </div>
