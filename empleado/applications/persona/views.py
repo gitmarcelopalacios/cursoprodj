@@ -13,8 +13,8 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 # importo el modelo
 from .models import Empleado
-
-#from .forms import EmpleadoForm
+# Aqui importo los formularios
+from .forms import EmpleadoForm
 
 from django.core.paginator import Paginator
 
@@ -100,12 +100,12 @@ class SuccessView(TemplateView):
 class EmpleadoCreateView(CreateView):
     template_name = "persona/add.html"
     model = Empleado
-    #form_class = EmpleadoForm
+    form_class = EmpleadoForm
     success_url = reverse_lazy('persona_app:empleados_admin')
 
     # muestra todos los campos
     #fields = ('__all__')
-    fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades', 'avatar')
+    #fields = ('first_name', 'last_name', 'job', 'departamento' ,'habilidades', 'avatar')
     # recarga la misma pagina
 
     def form_valid(self, form):
