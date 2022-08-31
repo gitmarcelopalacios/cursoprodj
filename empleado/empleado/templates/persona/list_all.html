@@ -2,13 +2,19 @@
 
 {% load static %}
 
+
+{% block title %}
+    Consulta
+{% endblock title %}
+    
+
 {% block content %}
 
     {% include 'includes/header.html' %}
     <div class="grid-container">
         <div class="grid-x">
             <h1>Lista Empleados</h1>
-            <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+            <form class="cell grid-x grid-margin-x" method="GET"> {% csrf_token %}
                 <div>
                     <input type="text" id="kword" name="kword" placeholder="Buscar Empleado"> 
                 </div>    

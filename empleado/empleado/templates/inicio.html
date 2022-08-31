@@ -2,12 +2,18 @@
 
 {% load static %}
 
-{% block title %} Página de Inicio Sistema Empleados {% endblock title %}
+{% block title %} 
+juli
+{% endblock title %}
 
 
 {% block content %}
 
+
+
 {% include 'includes/header.html' %}
+
+
 
 <!-- orbit js inicio portada -->
 
@@ -18,6 +24,12 @@
         <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
       </div>
       <ul class="orbit-container">
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/montañas1.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Desde la foto.</figcaption>
+          </figure>
+        </li>
         <li class="orbit-slide">
           <figure class="orbit-figure">
             <img class="orbit-image" src="{% static 'img/montañas2.jpg' %}" alt="Space">
@@ -51,8 +63,10 @@
             <p>It has an easy to override visual style, and is appropriately subdued.</p>
             <a href="#">Ver Empleados</a>
           </div>
-    </DIV> 
+        </DIV> 
 </div>
+
+
 <!-- fin del bloque de bienvenida -->
 
 {% endblock content %}

@@ -3,6 +3,7 @@ from django.urls import path
 from django import views
 from .views import InicioView
 from . import views
+
 app_name = "persona_app"
 
 urlpatterns = [

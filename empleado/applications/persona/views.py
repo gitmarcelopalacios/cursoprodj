@@ -20,7 +20,6 @@ from django.core.paginator import Paginator
 
 
 class InicioView(TemplateView):
-    ''' vista que carga la pagina de inicio '''
     template_name = "inicio.html"
 
 
