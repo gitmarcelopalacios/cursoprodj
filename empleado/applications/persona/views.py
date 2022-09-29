@@ -23,14 +23,20 @@ class InicioView(TemplateView):
     template_name = "inicio.html"
 
 
+# declaracion de una clase basada en una plantilla list view
 class ListAllEmpleados(ListView):
     # listar todos los empleados de la empresa
+    # nombre del template (html) y la ubicacion.
     template_name = "persona/list_all.html"
-    paginate_by = 4
+    # cantidqd de renglones que muestra en el paginado
+    paginate_by = 10
+    # palabra reservada que muestra el el ordenamiento.
     ordering = 'first_name'
+    # nombre, del objeto de contexto.
     context_object_name = 'empleados'
     #model = Empleado
 
+    # para poder buscar datos.
     def get_queryset(self):
         palabra_clave = self.request.GET.get("kword", '')
         lista = Empleado.objects.filter(
@@ -128,6 +134,7 @@ class EmpleadoUpdateView(UpdateView):
         return super().post(request, *args, **kwargs)
 
     def form_valid(self, form):
+        
         return super(EmpleadoUpdateView, self).form_valid(form)
 
 class EmpleadoDeleteView(DeleteView):

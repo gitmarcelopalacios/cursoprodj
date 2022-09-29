@@ -10,7 +10,7 @@ urlpatterns = [
     
     path(
         # en vacio se ejecuta como pantalla inicial
-        '', 
+        'inicio/', 
         views.InicioView.as_view(),
         name='inicio'
     ),
